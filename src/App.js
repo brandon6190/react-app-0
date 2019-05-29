@@ -27,7 +27,7 @@ class App extends React.Component {
             pets = data.petfinder.pets.pet; 
           }
           else {
-            pets = [data.petfinder.pets.pet];  and assign it to pets
+            pets = [data.petfinder.pets.pet];
           }
         }
         else { 

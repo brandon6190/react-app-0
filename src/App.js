@@ -22,15 +22,15 @@ class App extends React.Component {
       .then(data => {
         let pets;
 
-        if (data.petfinder.pets && data.petfinder.pets.pet) { // is their data in pets and pet from the api
-          if (Array.isArray(data.petfinder.pets.pet)) { // if the api sends back multiple pets
-            pets = data.petfinder.pets.pet; // assign that array to the pets variable
+        if (data.petfinder.pets && data.petfinder.pets.pet) {
+          if (Array.isArray(data.petfinder.pets.pet)) { 
+            pets = data.petfinder.pets.pet; 
           }
-          else { // else the api will send back only 1 pet then...
-            pets = [data.petfinder.pets.pet]; // wrap that one pet with an array and assign it to pets
+          else {
+            pets = [data.petfinder.pets.pet];  and assign it to pets
           }
         }
-        else { // if pets and pet are null then... 
+        else { 
           pets = [];
         }
 

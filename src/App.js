@@ -48,7 +48,7 @@ class App extends React.Component {
         <div>
           { this.state.pets.map(pet => {
             let breed;
-            console.log('this.state = ', this.state);
+            
             if (Array.isArray(pet.breeds.breed)) {
               breed = pet.breeds.breed.join(', ');
             }
@@ -58,6 +58,7 @@ class App extends React.Component {
 
             return (
               <Pet
+                key={pet.id}
                 name={pet.name}
                 animal={pet.animal}
                 breed={breed}

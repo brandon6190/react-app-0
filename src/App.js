@@ -44,11 +44,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>BF Finder!</h1>
+        <h1>Find A Pet!</h1>
         <div>
           { this.state.pets.map(pet => {
             let breed;
-            
+
             if (Array.isArray(pet.breeds.breed)) {
               breed = pet.breeds.breed.join(', ');
             }

@@ -1,11 +1,28 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Link } from '@reach/router';
+import { Provider } from './SearchContext';
+
 import Results from './Results';
 import Details from './Details';
 import SearchParams from './SearchParams';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      location: 'New York, NY',
+      animal: '',
+      breed: '',
+      breeds: [],
+      handleLocationChange: this.handleLocationChange,
+      handleAnimalChange: this.hanldeAnimalChange,
+      handleBreedChange: this.handleBreedChange,
+      getBreeds: this.getBreeds
+    }
+  }
+
 	render() {
 		return (
 			<div>

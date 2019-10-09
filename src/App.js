@@ -1,11 +1,20 @@
 import React from 'react';
 import { render } from 'react-dom';
+import pf from 'petfinder-client';
+
 import { Router, Link } from '@reach/router';
 import { Provider } from './SearchContext';
 
 import Results from './Results';
 import Details from './Details';
-import SearchParams from './SearchParams';
+// import SearchParams from './SearchParams';
+import SearchBox from './SearchBox';
+
+const petfinder = pf({
+	key: process.env.API_KEY,
+	secret: process.env.API_SECRET,
+});
+
 
 class App extends React.Component {
 	constructor(props) {
@@ -77,7 +86,7 @@ class App extends React.Component {
 					<Router>
 						<Results path="/" />
 						<Details path="/details/:id" />
-						<SearchParams path="/search-params" />
+						<SearchBox path="/search-params" />
 					</Router>
 				</Provider>
 			</div>

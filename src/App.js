@@ -8,22 +8,22 @@ import Details from './Details';
 import SearchParams from './SearchParams';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+	constructor(props) {
+		super(props);
 
-    this.state = {
-      location: 'New York, NY',
-      animal: '',
-      breed: '',
-      breeds: [],
-      handleLocationChange: this.handleLocationChange,
-      handleAnimalChange: this.hanldeAnimalChange,
-      handleBreedChange: this.handleBreedChange,
-      getBreeds: this.getBreeds
-    }
-  }
+		this.state = {
+			location: 'New York, NY',
+			animal: '',
+			breed: '',
+			breeds: [],
+			handleLocationChange: this.handleLocationChange,
+			handleAnimalChange: this.hanldeAnimalChange,
+			handleBreedChange: this.handleBreedChange,
+			getBreeds: this.getBreeds,
+		};
+	}
 
-  handleLocationChange = event => {
+	handleLocationChange = event => {
 		this.setState({
 			location: event.target.value,
 		});
@@ -73,11 +73,13 @@ class App extends React.Component {
 				<header>
 					<Link to="/">Adopt Me!</Link>
 				</header>
-				<Router>
-					<Results path="/" />
-					<Details path="/details/:id" />
-          <SearchParams path="/search-params" />
-				</Router>
+				<Provider value={this.state}>
+					<Router>
+						<Results path="/" />
+						<Details path="/details/:id" />
+						<SearchParams path="/search-params" />
+					</Router>
+				</Provider>
 			</div>
 		);
 	}

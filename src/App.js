@@ -7,14 +7,12 @@ import { Provider } from './SearchContext';
 
 import Results from './Results';
 import Details from './Details';
-// import SearchParams from './SearchParams';
-import SearchBox from './SearchBox';
+import SearchParams from './SearchParams';
 
 const petfinder = pf({
 	key: process.env.API_KEY,
 	secret: process.env.API_SECRET,
 });
-
 
 class App extends React.Component {
 	constructor(props) {
@@ -26,7 +24,7 @@ class App extends React.Component {
 			breed: '',
 			breeds: [],
 			handleLocationChange: this.handleLocationChange,
-			handleAnimalChange: this.hanldeAnimalChange,
+			handleAnimalChange: this.handleAnimalChange,
 			handleBreedChange: this.handleBreedChange,
 			getBreeds: this.getBreeds,
 		};
@@ -86,7 +84,7 @@ class App extends React.Component {
 					<Router>
 						<Results path="/" />
 						<Details path="/details/:id" />
-						<SearchBox path="/search-params" />
+						<SearchParams path="/search-params" />
 					</Router>
 				</Provider>
 			</div>

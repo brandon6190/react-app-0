@@ -2,13 +2,12 @@ import React from 'react';
 import { ANIMALS } from 'petfinder-client';
 import { Consumer } from './SearchContext';
 
-class SearchBox extends React.Component {
+class Search extends React.Component {
 	render() {
 		return (
 			<Consumer>
 				{context => (
           <div className="search-params">
-          {console.log('SearchContext = ', context)}
 						<label htmlFor="location">
 							Location:
 							<input
@@ -25,7 +24,8 @@ class SearchBox extends React.Component {
 								id="animal"
 								value={context.animal}
 								onChange={context.handleAnimalChange}
-								onBlur={context.handleAnimalChange}>
+								onBlur={context.handleAnimalChange}
+              >
 								<option />
 								{ANIMALS.map(animal => {
 									return (
@@ -40,11 +40,12 @@ class SearchBox extends React.Component {
 						<label htmlFor="breed">
 							Breed:
 							<select
+								disabled={!context.breeds.length}
 								id="breed"
 								value={context.breed}
 								onChange={context.handleBreedChange}
 								onBlur={context.handleBreedChange}
-								disabled={!context.breeds.length}>
+                >
 								<option />
 								{context.breeds.map((breed, index) => {
 									return (
@@ -64,4 +65,4 @@ class SearchBox extends React.Component {
 	}
 }
 
-export default SearchBox;
+export default Search;
